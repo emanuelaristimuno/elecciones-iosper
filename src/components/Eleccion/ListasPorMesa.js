@@ -87,15 +87,9 @@ const ListasPorMesa = () => {
             </form>
             
             <br/><h4>Resultado:</h4>
-           {listas?<Results />:"-"  }
+           {listas[0]?.lista?<Results />:"-"  }
 
-           <form className="row" onSubmit={cargarVotos}>
-           <div className="col-md-4" >        
-
-              <button type="submit" className="btn btn-success">Guardar Votos</button>
-           </div>
-
-             </form>
+          
         </Fragment>
     );
 }

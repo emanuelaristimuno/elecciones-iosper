@@ -1,19 +1,20 @@
 
 
 import React , { useState,useEffect, Fragment } from "react";
+import { registrarVoto } from "../../services/Eleccion/Eleccion";
 import ListaEditable from "./ListaEditable";
 import ListaSoloLectura from "./ListaSoloLectura";
 
 const TableListas = ({listas}) => {
   
   const [Listas, setListas] = useState(listas);
-  
+  /*
   useEffect(() => {
     if (Listas) {
      console.log("listas:", Listas);
     }
    }, [Listas]);
-
+*/
 
   const [editFormData, setEditFormData] = useState({
     lista: "",
@@ -46,6 +47,7 @@ const TableListas = ({listas}) => {
     const editedLista = {
       lista: editListaId,
       mesa: editFormData.mesa,
+      idvoto: editFormData.idvoto,
       agrupamiento: editFormData.agrupamiento,
       nombre: editFormData.nombre,
       votos: editFormData.votos
@@ -58,7 +60,22 @@ const TableListas = ({listas}) => {
     newListas[index] = editedLista;
 
     setListas(newListas);
-    listas= newListas;//no puedo guardar voto aca?...
+    registrarVoto(editedLista)
+    .then((response) => {
+      if (response?.data?.status === 'error') {
+        console.error(response.data.message)
+      }                         
+      //actualizar listas
+      //console.log(response);  
+    //  setListas(response)
+    })
+    .catch((e) => {
+      if (e?.response?.status === 'error') {
+        console.log(e.response.data.message);
+      }
+    }); 
+    
+    console.log(Listas)
     setEditListaId(null);
   };
 
@@ -68,6 +85,7 @@ const TableListas = ({listas}) => {
 
     const formValues = {
       lista: lista.lista,
+      idvoto:lista.idvoto,
       mesa: lista.mesa,
       agrupamiento: lista.agrupamiento,
       nombre: lista.nombre,

@@ -153,7 +153,7 @@ const Menu = (props) => {
           <Toolbar>
             <Avatar alt="IOSPER" src={logo} />
             <Typography variant="h6" noWrap component="div" ml={2}>
-              ELECCIONES IOSPER
+              ELECCIONES
             </Typography>
             <Box sx={{ flexGrow: 1 }} />
           </Toolbar>
@@ -180,7 +180,7 @@ const Menu = (props) => {
               {!open && <Avatar alt="IOSPER" src={logo} />}
               {!open && (
                   <Typography variant="h6" noWrap component="div" ml={2}>
-                    ELECCIONES IOSPER
+                    ELECCIONES
                   </Typography>
               )}
               <Box sx={{ flexGrow: 1 }} />

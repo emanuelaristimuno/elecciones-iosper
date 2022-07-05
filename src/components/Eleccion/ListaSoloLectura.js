@@ -5,8 +5,8 @@ const ListaSoloLectura = ({ lista, handleEditClick, handleDeleteClick }) => {
     <tr>
       <td>{lista.lista}</td>
       <td>{lista.mesa}</td>
-      <td>{lista.agrupamiento}</td>
       <td>{lista.nombre}</td>
+      <td>{lista.agrupamiento}</td>
       <td >{lista.votos}</td>
       <td>
         <button
