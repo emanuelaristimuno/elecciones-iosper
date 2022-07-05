@@ -1,17 +1,6 @@
 import axios from "axios";
 
-/**
- * Validar capita api call
- * @returns
- */
-export const dondeVoto = (data) => {
-  return axios
-  .get("/v1/elecciones/donde-voto/"+data, {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-};
+
 
 export const getResultadosEleccion = () => {
   return axios
@@ -22,7 +11,7 @@ export const getResultadosEleccion = () => {
   });
 };
 
-export const dondeVoto2 = async (idAfiliado) => {
+export const dondeVoto = async (idAfiliado) => {
   return axios
     .get("/v1/elecciones/donde-voto/"+idAfiliado, 
       {

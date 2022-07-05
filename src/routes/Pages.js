@@ -10,7 +10,6 @@ import { useUser } from "../components/Auth/User";
 /* Components */
 import SignIn from '../components/Auth/SignIn';
 import SignOut from '../components/Auth/SignOut';
-import Home from "../components/Screens/Home";
 import DondeVoto from "../components/Eleccion/DondeVoto";
 import ListasPorMesa from "../components/Eleccion/ListasPorMesa";
 import GraficoSeguimiento from "../components/Eleccion/GraficoSeguimiento";
