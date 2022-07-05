@@ -24,9 +24,11 @@ const GraficoSeguimiento = () => {
             setData(res?.data);     
         };
 
-        setInterval(() => {
+        const interval = setInterval(() => {
             getData();
-        }, 10000)
+        }, 10000);
+
+        return () => clearInterval(interval);
 
     }, [])
     
