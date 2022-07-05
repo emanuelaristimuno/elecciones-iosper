@@ -31,24 +31,14 @@ const Pages = () => (
     <Switch>
       {/* Public routes */}
       <Route path="/signin"> <SignIn /> </Route>
-      <Route path="/donde-voto">
-        <div className="container mt-5">
-               <DondeVoto></DondeVoto>
-        </div>
-      </Route>
-      <Route path="/buscar-listas-por-mesa">
-        <div className="container mt-5">
-                <ListasPorMesa></ListasPorMesa>
-        </div>
-          </Route>
-      <Route path="/resultados-eleccion">  </Route>
-
+      <Route path="/donde-voto"> <DondeVoto/> </Route>
+      <Route path="/resultados-eleccion"> </Route>
       <Route path="/grafico-seguimiento"><GraficoSeguimiento/></Route>
       
       {/* Private routes */}
       <PrivateRoute path="/signout"><SignOut /></PrivateRoute>
       <PrivateRoute exact path="/carga"> </PrivateRoute>
-      
+      <PrivateRoute exact path="/buscar-listas-por-mesa"> <ListasPorMesa/></PrivateRoute>
     </Switch>
   </Box>
 );

@@ -11,7 +11,8 @@ export const SideMenuList = [
         to: "/buscar-listas-por-mesa",
         key: "buscar",
         icon: () => <PlaylistAddCheck fontSize="small" />,
-        label: "Cargar votos"
+        label: "Cargar votos",
+        logged: true,
     }, 
     {
         to: "/donde-voto",
@@ -29,24 +30,31 @@ export const SideMenuList = [
 
 export const BottomMenuList = [
     {
-        to: "/signout",
-        key: "Salir",
+        to: "/signin",
+        key: "Iniciar",
         icon: () => <ExitToApp/>,
-        label: "Salir"
-    }
-]
-
-export const TopMenuList = [
-    {
-        to: "/perfil",
-        key: "Perfil",
-        icon: () => <Person fontSize="small" />,
-        label: "Perfil"
+        label: "Iniciar"
     },
     {
         to: "/signout",
         key: "Salir",
-        icon: () => <Logout fontSize="small" />,
-        label: "Salir"
+        icon: () => <ExitToApp/>,
+        label: "Salir",
+        logged: true,
     }
+]
+
+export const TopMenuList = [
+    // {
+    //     to: "/perfil",
+    //     key: "Perfil",
+    //     icon: () => <Person fontSize="small" />,
+    //     label: "Perfil"
+    // },
+    // {
+    //     to: "/signout",
+    //     key: "Salir",
+    //     icon: () => <Logout fontSize="small" />,
+    //     label: "Salir"
+    // }
 ]

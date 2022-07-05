@@ -111,6 +111,9 @@ const Menu = (props) => {
 
   const drawMenuList = list => {
     return list.map((item) => {
+      if (item.logged && !user) {
+        return null
+      }
       return (
         <ListItemButton
           key={item.key}
@@ -160,7 +163,7 @@ const Menu = (props) => {
         </AppBar>
       )}
 
-      {!user && (
+      
         <>
           <AppBar position="fixed" open={(open)}>
             <Toolbar>
@@ -237,7 +240,7 @@ const Menu = (props) => {
             <List>{drawMenuList(BottomMenuList)}</List>
           </Drawer>
         </>
-      )}
+      
     </Box>
   );
 };
