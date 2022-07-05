@@ -1,5 +1,5 @@
 import React, {Fragment, useState} from 'react';
-import { dondeVoto2, listasPorMesa } from '../../services/Eleccion/Eleccion';
+import { listasPorMesa } from '../../services/Eleccion/Eleccion';
 import TableListas from './TableListas';
 
 const ListasPorMesa = () => {

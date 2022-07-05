@@ -1,4 +1,5 @@
 import { ExitToApp, Home, Logout, Person } from '@mui/icons-material'
+import ListasPorMesa from '../components/Eleccion/ListasPorMesa'
 
 export const SideMenuList = [
     {
@@ -6,7 +7,13 @@ export const SideMenuList = [
         key: "Inicio",
         icon: () => <Home/>,
         label: "Inicio"
-    },
+    } ,
+    {
+        to: "/buscar-listas-por-mesa",
+        key: "buscar",
+        icon: () => <ListasPorMesa fontSize="small" />,
+        label: "Salir"
+    }
 ]
 
 export const BottomMenuList = [
