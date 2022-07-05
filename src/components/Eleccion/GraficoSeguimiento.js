@@ -1,4 +1,4 @@
-import { Container } from '@mui/material';
+import { Box, Container, Grid, LinearProgress } from '@mui/material';
 import React from 'react'
 import { Chart } from "react-google-charts";
 import { getResultadosEleccion } from '../../services/Eleccion/Eleccion';
@@ -35,20 +35,35 @@ const GraficoSeguimiento = () => {
 
 
     return (
-        <Container sx={{ height: '100%' }}>
-            {data?.map((item, key) => (
-                <div key={key}>
-                    {item.agrupamiento}
-                    <Chart
-                        chartType="PieChart"
-                        data={getInfo(item.listas)}
-                        width="100%"
-                        height="400px"
-                        legendToggle
-                    />
-                </div>
-            ))}
-        </Container>
+        <>
+            {!data && (
+                <Grid
+                    direction="row"
+                    justifyContent="center"
+                    alignItems="center"
+                >
+                    
+                        <LinearProgress sx={{ mt: '30px'}}/>
+                    
+                </Grid>
+            )}
+            {data && (
+                <Grid container spacing={2} sx={{ height: '100%' }}>
+                    {data?.map((item, key) => (
+                        <Grid item md={6} key={key}>
+                            {item.agrupamiento}
+                            <Chart
+                                chartType="PieChart"
+                                data={getInfo(item.listas)}
+                                width="100%"
+                                height="400px"
+                                legendToggle
+                            />
+                        </Grid>
+                    ))}
+                </Grid>
+            )}
+        </>
     )
 }
 
