@@ -20,19 +20,18 @@ const GraficoSeguimiento = () => {
     
 
     return (
-        <Container>
+        <Container sx={{ height: '100%' }}>
             {data?.map((item, key) => (
-                <>
+                <div key={key}>
                     {item.agrupamiento}
                     <Chart
-                        key={key}
                         chartType="ScatterChart"
                         data={[["Age", "Weight"], [4, 5.5], [8, 12]]}
                         width="100%"
                         height="400px"
                         legendToggle
                     />
-                </>
+                </div>
             ))}
         </Container>
     )
