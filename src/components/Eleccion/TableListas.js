@@ -1,6 +1,6 @@
 
 
-import React , { useState,useEffect, Fragment } from "react";
+import React , { useState, Fragment } from "react";
 import { registrarVoto } from "../../services/Eleccion/Eleccion";
 import ListaEditable from "./ListaEditable";
 import ListaSoloLectura from "./ListaSoloLectura";
@@ -104,7 +104,7 @@ const TableListas = ({listas}) => {
   return (
     <div className="app-container">
       <form onSubmit={handleEditFormSubmit}>
-        <table>
+      <table className="table table-striped table-bordered table-hover table-sm">
           <thead>
             <tr>
               <th>Lista</th>

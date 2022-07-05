@@ -30,8 +30,8 @@ const ListaEditable = ({
       </td>
       
       <td>
-        <button type="submit">Guardar</button>
-        <button type="button" onClick={handleCancelClick}>
+        <button type="submit" className="btn btn-success btn-sm">Registrar</button>
+        <button type="button" className="btn btn-secondary btn-sm"onClick={handleCancelClick}>
           Cancel
         </button>
       </td>

@@ -7,10 +7,10 @@ const ListaSoloLectura = ({ lista, handleEditClick, handleDeleteClick }) => {
       <td>{lista.mesa}</td>
       <td>{lista.nombre}</td>
       <td>{lista.agrupamiento}</td>
-      <td >{lista.votos}</td>
+      <td >{lista.votos?lista.votos:0}</td>
       <td>
         <button
-          type="button"
+          type="button" className="btn btn-primary"
           onClick={(event) => handleEditClick(event, lista)}
         >
           Editar        </button>

@@ -46,27 +46,7 @@ const ListasPorMesa = () => {
           )
 
         
-    const cargarVotos = (event) => {
-      event.preventDefault()
-      const numeroMesa = mesa;
-      console.log('CARGANDO VOTOS DE MESA...' + numeroMesa )
-      console.log(listas )
-     /* listasPorMesa(numeroMesa)
-          .then((response) => {
-            if (response?.data?.status === 'error') {
-              console.error(response.data.message)
-            }                         
-            console.log(response);  
-            setListas(response)
-          })
-          .catch((e) => {
-            if (e?.response?.status === 'error') {
-              console.log(e.response.data.message);
-            }
-          });
-  */
-        };
-
+   
     return (
         <Fragment>
             <h1>Busca Listas:</h1>
