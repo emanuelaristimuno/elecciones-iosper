@@ -11,6 +11,7 @@ const ListasPorMesa = () => {
         // console.log(event.target.name)
         // console.log(event.target.value)
         setMesa( event.target.value )
+        setListas([]);
     }
 
     const enviarDatos = (event) => {
@@ -41,6 +42,7 @@ const ListasPorMesa = () => {
 
           const Results = () => (
             <div>   
+              <h5 className= "text-success">Listas encontradas para la mesa {mesa} de la escuela {listas[0].escuela}:</h5><br/>
                <TableListas listas={listas}></TableListas> 
                  </div>
           )
@@ -49,11 +51,11 @@ const ListasPorMesa = () => {
    
     return (
         <Fragment>
-            <h1>Busca Listas:</h1>
+            <h1>Busca listas:</h1>
             <form className="row" onSubmit={enviarDatos}>
                 <div className="col-md-4">
                     <input type="text" placeholder="Ingrese n° de mesa" className="form-control" 
-                    onChange={handleInputChange} name="mesa"></input>
+                    onChange={handleInputChange}  name="mesa"></input>
                 </div>
               
                 <br/><br/>   
@@ -66,8 +68,8 @@ const ListasPorMesa = () => {
 
             </form>
             
-            <br/><h4>Resultado:</h4>
-           {listas[0]?.lista?<Results />:"-"  }
+            <br/>
+           {listas[0]?.lista&&mesa?<Results />:""  }
 
           
         </Fragment>

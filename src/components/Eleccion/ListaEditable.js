@@ -11,9 +11,6 @@ const ListaEditable = ({
        {editFormData.lista}
       </td>
       <td>
-        {editFormData.mesa}
-      </td>
-      <td>
         {editFormData.nombre}
       </td>
       <td>
@@ -22,9 +19,9 @@ const ListaEditable = ({
       <td>
         <input
           type="text"
-          placeholder="Enter votos..."
+          placeholder="ingrese los votos..."
           name="votos"
-          value={editFormData.votos?editFormData.votos:0}
+          value={editFormData.votos}
           onChange={handleEditFormChange}
         ></input>
       </td>

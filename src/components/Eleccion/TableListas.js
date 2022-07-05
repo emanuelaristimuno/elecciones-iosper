@@ -85,7 +85,7 @@ const TableListas = ({listas}) => {
 
     const formValues = {
       lista: lista.lista,
-      idvoto:lista.idvoto,
+      idvoto: lista.idvoto,
       mesa: lista.mesa,
       agrupamiento: lista.agrupamiento,
       nombre: lista.nombre,
@@ -108,9 +108,8 @@ const TableListas = ({listas}) => {
           <thead>
             <tr>
               <th>Lista</th>
-              <th>Mesa</th>
-              <th>Agrupamiento</th>
               <th>Nombre</th>
+              <th>Agrupamiento</th>
               <th>Votos</th>
               <th>Actions</th>
             </tr>
