@@ -160,7 +160,7 @@ const Menu = (props) => {
         </AppBar>
       )}
 
-      {user && (
+      {!user && (
         <>
           <AppBar position="fixed" open={(open)}>
             <Toolbar>

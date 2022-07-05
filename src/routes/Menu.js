@@ -1,5 +1,4 @@
-import { ExitToApp, Home, Logout, Person } from '@mui/icons-material'
-import ListasPorMesa from '../components/Eleccion/ListasPorMesa'
+import { ExitToApp, Home, Logout, Person, PlaylistAddCheck, School } from '@mui/icons-material'
 
 export const SideMenuList = [
     {
@@ -11,8 +10,13 @@ export const SideMenuList = [
     {
         to: "/buscar-listas-por-mesa",
         key: "buscar",
-        icon: () => <ListasPorMesa fontSize="small" />,
-        label: "Salir"
+        icon: () => <PlaylistAddCheck fontSize="small" />,
+        label: "Cargar votos"
+    },  {
+        to: "/donde-voto",
+        key: "donde-voto",
+        icon: () => <School fontSize="small" />,
+        label: "Donde voto"
     }
 ]
 
