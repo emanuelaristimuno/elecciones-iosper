@@ -3,21 +3,34 @@ import React, { useEffect } from 'react'
 import { Chart } from "react-google-charts";
 import { getResultadosEleccion } from '../../services/Eleccion/Eleccion';
 
+const getInfo = listas => {
+    const dataG = [
+        ["Lista", "Votos"],
+    ];
+
+    listas?.map((i) => 
+        dataG.push([i.nombre, i.cantidadvoto])
+    )
+
+    return dataG;
+}
+
 const GraficoSeguimiento = () => {
     const [data, setData] = React.useState(null);
     
     React.useEffect(() => {
         const getData = async () => {
             const res = await getResultadosEleccion();
-            console.log('res.data', res.data)
-            setData(res?.data);
-               
+            setData(res?.data);     
         };
 
-        getData();
+        setInterval(() => {
+            getData();
+        }, 10000)
 
     }, [])
     
+
 
     return (
         <Container sx={{ height: '100%' }}>
@@ -25,8 +38,8 @@ const GraficoSeguimiento = () => {
                 <div key={key}>
                     {item.agrupamiento}
                     <Chart
-                        chartType="ScatterChart"
-                        data={[["Age", "Weight"], [4, 5.5], [8, 12]]}
+                        chartType="PieChart"
+                        data={getInfo(item.listas)}
                         width="100%"
                         height="400px"
                         legendToggle
