@@ -1,5 +1,5 @@
 import React, {Fragment, useState} from 'react';
-import { dondeVoto2 } from '../../services/Eleccion/Eleccion';
+import { dondeVoto } from '../../services/Eleccion/Eleccion';
 
 const DondeVoto = () => {
 
@@ -7,21 +7,17 @@ const DondeVoto = () => {
   const [escuela, setEscuela] = useState({});
   
     const handleInputChange = (event) => {
-        // console.log(event.target.name)
-        // console.log(event.target.value)
         setDni( event.target.value        )
     }
 
     const enviarDatos = (event) => {
         event.preventDefault()
         const idAfiliado = dni;
-        console.log('enviando datos...' + dni )
-          dondeVoto2(idAfiliado)
+          dondeVoto(idAfiliado)
             .then((response) => {
               if (response?.data?.status === 'error') {
                 console.error(response.data.message)
               }                         
-              console.log(response);  
               setEscuela(response)
             })
             .catch((e) => {
@@ -39,6 +35,7 @@ const DondeVoto = () => {
 
 
           const Results = () => (
+            <div>              <h4>Resultado:</h4>
             <div style={{
               border: '2px solid #abecf9',
               borderBottomLeftRadius: '30px',
@@ -58,6 +55,8 @@ const DondeVoto = () => {
           </ul>
 
           </div>
+          </div>
+
           )
 
         
@@ -82,8 +81,8 @@ const DondeVoto = () => {
 
             </form>
             
-            <br/><h4>Resultado:</h4>
-            { escuela['nombre'] ? <Results /> : "-" }
+            <br/>
+            { escuela['nombre'] ? <Results /> : "" }
 
             
         </Fragment>

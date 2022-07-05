@@ -29,7 +29,7 @@ const ListaEditable = ({
       <td>
         <button type="submit" className="btn btn-success btn-sm">Registrar</button>
         <button type="button" className="btn btn-secondary btn-sm"onClick={handleCancelClick}>
-          Cancel
+          Cancelar
         </button>
       </td>
     </tr>

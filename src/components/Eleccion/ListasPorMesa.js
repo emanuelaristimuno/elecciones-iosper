@@ -8,8 +8,6 @@ const ListasPorMesa = () => {
   const [listas, setListas] = useState([]);
   
     const handleInputChange = (event) => {
-        // console.log(event.target.name)
-        // console.log(event.target.value)
         setMesa( event.target.value )
         setListas([]);
     }
@@ -17,13 +15,11 @@ const ListasPorMesa = () => {
     const enviarDatos = (event) => {
         event.preventDefault()
         const numeroMesa = mesa;
-        console.log('enviando mesa...' + numeroMesa )
         listasPorMesa(numeroMesa)
             .then((response) => {
               if (response?.data?.status === 'error') {
                 console.error(response.data.message)
               }                         
-              console.log(response);  
               setListas(response)
             })
             .catch((e) => {

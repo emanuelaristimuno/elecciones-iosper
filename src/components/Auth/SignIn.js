@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { Redirect } from "react-router-dom";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 import Container from "@mui/material/Container";
 import Paper from '@mui/material/Paper';

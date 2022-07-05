@@ -1,5 +1,5 @@
 import { Container } from '@mui/material';
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Chart } from "react-google-charts";
 import { getResultadosEleccion } from '../../services/Eleccion/Eleccion';
 
