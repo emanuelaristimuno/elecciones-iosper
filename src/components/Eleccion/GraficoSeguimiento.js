@@ -5,29 +5,35 @@ import { getResultadosEleccion } from '../../services/Eleccion/Eleccion';
 
 const GraficoSeguimiento = () => {
     const [data, setData] = React.useState(null);
-    const getResultados = () => 
-        getResultadosEleccion()
-        .then((response) => {
-            if (response?.data) {
-                setData(response?.data);
-                console.log('data', data)
-            }
-        });
+    
+    React.useEffect(() => {
+        const getData = async () => {
+            const res = await getResultadosEleccion();
+            console.log('res.data', res.data)
+            setData(res?.data);
+               
+        };
+
+        getData();
+
+    }, [])
     
 
     return (
         <Container>
-            {data && (data?.map((item, key) => (
+            {data?.map((item, key) => (
+                <>
+                    {item.agrupamiento}
                     <Chart
-                    key={key}
-                    chartType="ScatterChart"
-                    data={[["Age", "Weight"], [4, 5.5], [8, 12]]}
-                    width="100%"
-                    height="400px"
-                    legendToggle
+                        key={key}
+                        chartType="ScatterChart"
+                        data={[["Age", "Weight"], [4, 5.5], [8, 12]]}
+                        width="100%"
+                        height="400px"
+                        legendToggle
                     />
-                ))
-            )}
+                </>
+            ))}
         </Container>
     )
 }
