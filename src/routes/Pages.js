@@ -13,6 +13,7 @@ import SignOut from '../components/Auth/SignOut';
 import Home from "../components/Screens/Home";
 import DondeVoto from "../components/Eleccion/DondeVoto";
 import ListasPorMesa from "../components/Eleccion/ListasPorMesa";
+import GraficoSeguimiento from "../components/Eleccion/GraficoSeguimiento";
 
 const PrivateRoute = ({ children, ...props }) => {
     const { user } = useUser()
@@ -41,6 +42,8 @@ const Pages = () => (
         </div>
           </Route>
       <Route path="/resultados-eleccion">  </Route>
+
+      <Route path="/grafico-seguimiento"><GraficoSeguimiento/></Route>
       
       {/* Private routes */}
       <PrivateRoute path="/signout"><SignOut /></PrivateRoute>

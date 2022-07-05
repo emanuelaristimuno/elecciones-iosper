@@ -13,6 +13,14 @@ export const dondeVoto = (data) => {
   });
 };
 
+export const getResultadosEleccion = () => {
+  return axios
+  .get("/v1/elecciones/resultados-eleccion", {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+};
 
 export const dondeVoto2 = async (idAfiliado) => {
   return axios
