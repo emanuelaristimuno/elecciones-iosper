@@ -57,7 +57,7 @@ const SignIn = () => {
   return user ? (
     <Redirect
       to={{
-        pathname: "/validar-contacto",
+        pathname: "/",
         state: { from: "/signin" },
       }}
     />

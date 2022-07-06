@@ -55,7 +55,7 @@ const ListasPorMesa = () => {
    
     return (
         <Fragment>
-            <h1>Busca listas:</h1>
+            <h1>Buscar listas:</h1>
             <form className="row" onSubmit={enviarDatos} onKeyUpCapture={handleOnKeyUp}>
                 <div className="col-md-4">
                     <input type="text" placeholder="Ingrese n° de mesa" className="form-control" 
