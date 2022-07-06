@@ -49,11 +49,10 @@ const TableListas = ({listas}) => {
       electores: editFormData.electores
     };
 
-    if(editedLista.votos > editedLista.electores){
-      setError(null)
+    /*if(editedLista.votos > editedLista.electores){
       setError("Los votos de " +editedLista.nombre+" no pueden superar la cantidad de electores del agrupamiento "+editedLista.agrupamiento)
       return null
-    }
+    }*/
 
     const newListas = [...Listas];
 
