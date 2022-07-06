@@ -1,11 +1,13 @@
 import React, {Fragment, useState} from 'react';
 import { listasPorMesa } from '../../services/Eleccion/Eleccion';
+import CustomizedSnackbars from '../Notifications/SnackBar';
 import TableListas from './TableListas';
 
 const ListasPorMesa = () => {
 
   const [mesa, setMesa] = useState("");
   const [listas, setListas] = useState([]);
+  const [error, setError] = useState("");
   
     const handleInputChange = (event) => {
         setMesa( event.target.value )
@@ -18,7 +20,7 @@ const ListasPorMesa = () => {
         listasPorMesa(numeroMesa)
             .then((response) => {
               if (response?.data?.status === 'error') {
-                console.error(response.data.message)
+                setError(response.data.message)
               }                         
               setListas(response)
             })
@@ -43,12 +45,18 @@ const ListasPorMesa = () => {
                  </div>
           )
 
+          const handleOnKeyUp = (e) => {
+            let {key, keyCode} = e
+            if (key === 'Enter' && keyCode === 13) {
+              enviarDatos(e)
+            }
+          }
         
    
     return (
         <Fragment>
             <h1>Busca listas:</h1>
-            <form className="row" onSubmit={enviarDatos}>
+            <form className="row" onSubmit={enviarDatos} onKeyUpCapture={handleOnKeyUp}>
                 <div className="col-md-4">
                     <input type="text" placeholder="Ingrese n° de mesa" className="form-control" 
                     onChange={handleInputChange}  name="mesa"></input>
@@ -67,7 +75,7 @@ const ListasPorMesa = () => {
             <br/>
            {listas[0]?.lista&&mesa?<Results />:""  }
 
-          
+      <CustomizedSnackbars open={error} severity="error" message={error} />
         </Fragment>
     );
 }

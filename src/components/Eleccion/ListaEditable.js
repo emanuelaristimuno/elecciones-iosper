@@ -18,7 +18,7 @@ const ListaEditable = ({
       </td>
       <td>
         <input
-          type="text"
+          type="number" min={0}
           placeholder="ingrese los votos..."
           name="votos"
           value={editFormData.votos}

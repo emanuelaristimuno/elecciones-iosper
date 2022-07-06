@@ -40,7 +40,7 @@ const SignIn = () => {
     const res = await signIn(credentials.username, credentials.password);
     if (res) {
       setLoading(false);
-      setResponse("Ingresando a Mi IOSPER...");
+      setResponse("Ingresando a ELECCIONES IOSPER...");
       } else {
         setError("Credenciales incorrectas. Intente nuevamente.");
         setLoading(false);
@@ -81,7 +81,7 @@ const SignIn = () => {
             required
             fullWidth
             id="username"
-            label="CUIL o Nº Afiliado"
+            label="Nombre de usuario"
             name="username"
             autoComplete="username"
             autoFocus
@@ -94,7 +94,7 @@ const SignIn = () => {
             required
             fullWidth
             name="password"
-            label="Contraseña - PIN"
+            label="Contraseña"
             type="password"
             id="password"
             autoComplete="current-password"
@@ -116,7 +116,7 @@ const SignIn = () => {
                     
           <LoadingButton
               fullWidth={true}
-              content={"Olvide Contraseña - PIN"}
+              content={"Olvide Contraseña"}
               onClick={openRecuperarPinHandler}
             />
         </form>

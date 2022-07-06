@@ -10,6 +10,13 @@ const DondeVoto = () => {
         setDni( event.target.value        )
     }
 
+    const handleOnKeyUp = (e) => {
+      let {key, keyCode} = e
+      if (key === 'Enter' && keyCode === 13) {
+        enviarDatos(e)
+      }
+    }
+
     const enviarDatos = (event) => {
         event.preventDefault()
         const idAfiliado = dni;
@@ -28,7 +35,7 @@ const DondeVoto = () => {
     
           };
 
-          const handleClick = (event) =>{
+          const handleClickLimpiar = (event) =>{
             event.preventDefault();
             setEscuela({});
           }
@@ -62,18 +69,18 @@ const DondeVoto = () => {
         
 
     return (
-        <Fragment>
-            <h1>Busca lugar de votación:</h1>
-            <form className="row" onSubmit={enviarDatos}>
+        <Fragment >
+            <h1>Buscar lugar de votación:</h1>
+            <form className="row" onSubmit={enviarDatos} onKeyUpCapture={handleOnKeyUp}>
                 <div className="col-md-4">
-                    <input type="text" placeholder="Ingrese documento" className="form-control" 
+                    <input type="number" placeholder="Ingrese documento" className="form-control" 
                     onChange={handleInputChange} name="dni"></input>
                 </div>
               
                 <br/><br/>   
 
           <div className="col-md-4" >          
-            <button onClick={handleClick} className="btn btn-secondary"     style={ {marginRight: '20px'} }
+            <button onClick={handleClickLimpiar} className="btn btn-secondary"     style={ {marginRight: '20px'} }
 >Limpiar</button>
              <button type="submit" className="btn btn-primary"
 >Buscar</button>

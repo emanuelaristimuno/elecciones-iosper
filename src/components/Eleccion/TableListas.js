@@ -2,19 +2,14 @@
 
 import React , { useState, Fragment } from "react";
 import { registrarVoto } from "../../services/Eleccion/Eleccion";
+import CustomizedSnackbars from "../Notifications/SnackBar";
 import ListaEditable from "./ListaEditable";
 import ListaSoloLectura from "./ListaSoloLectura";
 
 const TableListas = ({listas}) => {
   
   const [Listas, setListas] = useState(listas);
-  /*
-  useEffect(() => {
-    if (Listas) {
-     console.log("listas:", Listas);
-    }
-   }, [Listas]);
-*/
+  const [error, setError] = useState("");
 
   const [editFormData, setEditFormData] = useState({
     lista: "",
@@ -22,7 +17,7 @@ const TableListas = ({listas}) => {
     agrupamiento: "",
     nombre: "",
     votos: "",    
-
+    electores:""
   });
 
   const [editListaId, setEditListaId] = useState(null);
@@ -50,8 +45,15 @@ const TableListas = ({listas}) => {
       idvoto: editFormData.idvoto,
       agrupamiento: editFormData.agrupamiento,
       nombre: editFormData.nombre,
-      votos: editFormData.votos
+      votos: editFormData.votos,
+      electores: editFormData.electores
     };
+
+    if(editedLista.votos > editedLista.electores){
+      setError(null)
+      setError("Los votos de " +editedLista.nombre+" no pueden superar la cantidad de electores del agrupamiento "+editedLista.agrupamiento)
+      return null
+    }
 
     const newListas = [...Listas];
 
@@ -74,8 +76,6 @@ const TableListas = ({listas}) => {
         console.log(e.response.data.message);
       }
     }); 
-    
-    console.log(Listas)
     setEditListaId(null);
   };
 
@@ -90,6 +90,7 @@ const TableListas = ({listas}) => {
       agrupamiento: lista.agrupamiento,
       nombre: lista.nombre,
       votos: lista.votos,
+      electores: lista.electores
     };
 
     setEditFormData(formValues);
@@ -134,6 +135,7 @@ const TableListas = ({listas}) => {
           </tbody>
         </table>
       </form>
+      <CustomizedSnackbars open={error} severity="error" message={error} />
 
     </div>
   );

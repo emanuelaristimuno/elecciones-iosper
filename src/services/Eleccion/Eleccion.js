@@ -68,6 +68,7 @@ export const registrarVoto = async (data) => {
         lista:data.lista,
         mesa: data.mesa,
         cantidadVoto: data.votos,
+        electores:data.electores, 
         idUsuario:10    
     } ,
       {

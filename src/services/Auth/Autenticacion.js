@@ -26,7 +26,7 @@ export const singInUser = async ({ username, password }) => {
   try {
     const get = async () => {
       return axios.post(
-        "http://local-api.iosper.gov.ar:8083/v1/auth/signin",
+        "/v1/auth/signin",
         { nombre: username, contrasena: password , idAplicacion:999},
         {
           headers: {
