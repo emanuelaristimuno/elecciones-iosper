@@ -102,7 +102,7 @@ const GraficoSeguimiento = () => {
                                                                 fontSize: '1.5rem',
                                                                 fontWeight: '300'
                                                             }}>
-                                                                {data?.mesas_habilitadas*(data?.mesas_escrutadas/100)}%
+                                                                {(data?.mesas_escrutadas*100)/data?.mesas_habilitadas}%
                                                             </Typography>
                                                         } />
                                                 </ListItem>
