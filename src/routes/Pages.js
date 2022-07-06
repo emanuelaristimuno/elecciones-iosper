@@ -32,7 +32,7 @@ const Pages = () => (
       <Route path="/signin"> <SignIn /> </Route>
       <Route path="/donde-voto"> <DondeVoto/> </Route>
       <Route path="/resultados-eleccion"> </Route>
-      <Route path="/grafico-seguimiento"><GraficoSeguimiento/></Route>
+      <Route path="/resultados"><GraficoSeguimiento/></Route>
       
       {/* Private routes */}
       <PrivateRoute path="/signout"><SignOut /></PrivateRoute>

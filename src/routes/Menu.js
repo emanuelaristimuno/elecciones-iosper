@@ -1,4 +1,4 @@
-import { ExitToApp, GraphicEqRounded, Home, Logout, Person, PlaylistAddCheck, School } from '@mui/icons-material'
+import { ExitToApp, GraphicEqRounded, Home, Logout, Person, PlaylistAddCheck, Poll, School } from '@mui/icons-material'
 
 export const SideMenuList = [
     {
@@ -21,10 +21,10 @@ export const SideMenuList = [
         label: "Donde voto"
     },
     {
-        to: "/grafico-seguimiento",
-        key: "grafico-seguimiento",
-        icon: () => <GraphicEqRounded fontSize="small" />,
-        label: "Seguimiento"
+        to: "/resultados",
+        key: "resultados",
+        icon: () => <Poll fontSize="small" />,
+        label: "Resultados"
     }
 ]
 
