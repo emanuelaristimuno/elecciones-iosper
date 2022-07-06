@@ -114,6 +114,9 @@ const Menu = (props) => {
       if (item.logged && !user) {
         return null
       }
+      if (user && item.key === 'login') {
+        return null
+      }
       return (
         <ListItemButton
           key={item.key}

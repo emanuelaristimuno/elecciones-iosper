@@ -31,7 +31,7 @@ export const SideMenuList = [
 export const BottomMenuList = [
     {
         to: "/signin",
-        key: "Iniciar",
+        key: "login",
         icon: () => <ExitToApp/>,
         label: "Iniciar"
     },
